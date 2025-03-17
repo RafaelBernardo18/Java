@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Cadatro de contato</title>
+</h:head>
+
+<h:body>
+<h:form id="formulario">
+	<h:outputText id="titulo" value="Cadastro de Contatos" />
+	<h:panelGrid id="dados" columns="2">
+	
+	<h:outputText id="nomeLabel" value="Nome: "/>
+	<h:inputText id="nome" label="Nome" value="#{contatoMB.contato.nome}"/>
+	
+	<h:outputText id="telefoneLabel" value="Telefone: "/>
+	<h:inputText id="telefone" label="Telefone" value="#{contatoMB.contato.telefone}"/>
+		
+	<h:outputText id="nascimentoLabel" value="Data Nascimento: "/>
+	<h:inputText id="nascimento" label="Data de nascimento" value="#{contatoMB.contato.nascimento}">
+		<f:convertDateTime id="padraoData" pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+	</h:inputText>
+
+	<h:outputText id="sexoLabel" value="Sexo:" />
+	<h:selectOneRadio id="sexo" value="#{contatoMB.contato.sexo}">
+		<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+		<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+	</h:selectOneRadio>
+
+	<h:outputText id="categoriaLabel" value="Categoria:" />
+	<h:selectOneListbox id="categoria" value="#{contatoMB.contato.categoria}" >
+		<f:selectItem itemLabel="Amigo" itemValue="Amigo" />
+		<f:selectItem itemLabel="Familia" itemValue="Familia" />
+		<f:selectItem itemLabel="Trabalho" itemValue="Trabalho" />
+	</h:selectOneListbox>
+	
+ 	<h:outputText id="redesSociaisLabel" value="Redes Sociais:"/>
+        <h:selectManyCheckbox id="redesSociais" value="#{contatoMB.contato.redesSociais}">
+          <f:selectItem itemLabel="Google+" itemValue="Google+"/>
+          <f:selectItem itemLabel="Twitter" itemValue="Twitter"/>
+          <f:selectItem itemLabel="Facebook" itemValue="Facebook"/>
+          <f:selectItem itemLabel="LinkedIn" itemValue="LinkedIn"/>
+        </h:selectManyCheckbox>
+        
+    <h:outputText id="statusLabel" value="Status:"/>
+    <h:selectBooleanCheckbox id="valorStatus" value="#{contatoMB.contato.status}"/>
+	
+	</h:panelGrid>
+	<h:commandButton id="cadastrar" value="Cadastrar" action="#{contatoMB.adicionar}"/>
+
+    <h:messages id="msg"/>
+    
+     <h:dataTable id="contatos" value="#{contatoMB.contatos}" var="con" style="width: 100%">
+    <h:column id="columnNome">
+    	<f:facet name="header">
+    		<h:outputText id="headerNome" value="Nome"/>
+    	</f:facet>
+    	<h:outputText id="valorNome" value="#{con.nome}"/>
+    </h:column>
+    
+     <h:column id="columnTelefone">
+    	<f:facet name="header">
+    		<h:outputText id="headerTelefone" value="Telefone"/>
+    	</f:facet>
+    	<h:outputText id="valorTelefone" value="#{con.telefone}"/>
+    </h:column>
+    
+     <h:column id="columnDataNascimento">
+    	<f:facet name="header">
+    		<h:outputText id="headerDataNascimento" value="Data Nascimento"/>
+    	</f:facet>
+    	<h:outputText id="valorDataNascimento" value="#{con.nascimento}">
+    		<f:convertDateTime id="padraoDataNascimento" pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+    	</h:outputText>
+    </h:column>
+    
+    <h:column id="columnSexo">
+    	<f:facet name="header">
+    		<h:outputText id="headerSexo" value="Sexo"/>
+    	</f:facet>
+    	<h:outputText id="valorSexo" value="#{con.sexo}"/>
+    </h:column>
+
+    <h:column id="columnCategoria">
+    	<f:facet name="header">
+    		<h:outputText id="headerCategoria" value="Categoria"/>
+    	</f:facet>
+    	<h:outputText id="valorCategoria" value="#{con.categoria}"/>
+    </h:column>   
+    
+    <h:column id="columnRedesSociais">
+          <f:facet name="header">
+            <h:outputText id="headerRedesSociais" value="Redes Sociais"/>
+          </f:facet>
+        <h:outputText id="valorRedesSociais" value="#{con.redesSociaisFormatadas}"/>
+    </h:column>
+    
+    <h:column id="columnStatus">
+          <f:facet name="header">
+            <h:outputText id="headerStatus" value="Status"/>
+          </f:facet>
+          <h:outputText id="valorStatus" value="#{con.status ? 'Ativo' : 'Inativo'}"/>
+      </h:column>
+    
+    </h:dataTable>
+	</h:form>
+	</h:body>
+</html>
