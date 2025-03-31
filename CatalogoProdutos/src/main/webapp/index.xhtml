@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" >
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Catalogo</title>
+</h:head>
+<h:body>
+
+	<h:form >
+		<h:dataTable value="#{produtoBean.produtos}" rendered="#{produtoBean.produtos != null}" var="_produto" >
+			<h:column>
+				<f:facet name="header">Codigo</f:facet>
+				<h:outputText value="#{_produto.codigo}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Descricao</f:facet>
+				<h:outputText value="#{_produto.descricao}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Preco</f:facet>
+				<h:outputText value="#{_produto.preco}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Cod. Auxiliar</f:facet>
+				<h:outputText value="#{_produto.codauxiliar}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Fornecedor</f:facet>
+				<h:outputText value="#{_produto.fornecedor}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Data de Cadastro</f:facet>
+				<h:outputText value="#{_produto.dataCadastro}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</h:column>
+
+			<h:column>
+				<h:commandLink value="Editar" action="#{produtoBean.navegarEdit}">
+					<f:setPropertyActionListener value="#{_produto.codigo}" target="#{produtoBean.codigo}"/>
+				</h:commandLink>
+			</h:column>
+			
+			<h:column>
+				<h:commandLink value="Excluir" action="#{produtoBean.removerProduto}">
+					<f:setPropertyActionListener value="#{_produto.codigo}" target="#{produtoBean.codigo}"/>
+				</h:commandLink>
+			</h:column>
+			
+			
+		</h:dataTable>
+		
+		<h:commandButton value="Novo produto" action="#{produtoBean.navegarNovoProduto}" />
+		
+	</h:form>
+
+</h:body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" >
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Edicao de Produto</title>
+</h:head>
+<h:body>
+	algo escrito aqui <br/>
+	<h:form>
+	<h:inputHidden id="codigo" value="#{produtoBean.produto.codigo}" /> <br/> 
+	
+	<h:inputText id="descriao" value="#{produtoBean.produto.descricao}"/><br/> 
+	<h:inputText id="preco" value="#{produtoBean.produto.preco}"/><br/> 
+	<h:inputText id="codauxiliar" value="#{produtoBean.produto.codauxiliar}"/><br/> 
+	<h:inputText id="fornecedor" value="#{produtoBean.produto.fornecedor}"/><br/> 
+	
+	<h:inputText id="dataCadastro" value="#{produtoBean.produto.dataCadastro}">
+		<f:convertDateTime pattern="dd/MM/yyyy" />
+	</h:inputText><br/>
+	
+	
+	<h:commandButton value="alterar" action="#{produtoBean.atualizarProduto}"/>
+	<h:commandButton value="voltar" action="#{produtoBean.voltarIndex}"/>
+	</h:form>
+	
+	
+</h:body>
+</html>
