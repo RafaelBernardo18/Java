@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf8">
+    <title>Gestao de Cervejas</title>
+    <link rel="stylesheet" href="bootstrap.css" >
+</head>
+
+<body>
+
+    <div class="container my-1">
+        <h2>Gerenciamento de Cervejas</h2><br>
+
+        <table  border="1" class="table table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Descricao</th>
+                    <th>Unidade</th>
+                    <th>Cod. Barras</th>
+                    <th>Valor</th>
+                    <th>Quantidade</th>
+                    <th>Data Fabricacao</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cerveja : ${listaCervejas}">
+                    
+                    <td th:text="${cerveja.descricao}"/>
+                   	<td th:text="${cerveja.unidade}"/>
+                    <td th:text="${cerveja.codBarras}"/>
+                    <td th:text="${cerveja.valor}"/>
+                   <td th:text="${cerveja.quantidade}"/>
+                   <td th:text="${cerveja.dataFabricacao}"/>
+                    <td>
+                    	<a th:href="@{/FormularioEditCerveja/{id}(id=${cerveja.id})}" class="btn btn-success">Alterar</a>
+                    	<a th:href="@{/delCerveja/{id}(id=${cerveja.id})}" class="btn btn-danger">Remover</a>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/FomularioAddCerveja}" class="btn btn-primary">adicionar</a>
+    </div>
+</body>
+
+</html>

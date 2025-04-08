@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf8">
+    <title>Gestao de Cervejas</title>
+    <link rel="stylesheet" href="bootstrap.css" >
+</head>
+
+<body>
+	<div class="container">
+		<h2>Gerenciamento de Cervejas</h2><br>
+		
+		<form th:action="@{/addCerveja}" th:object="${cerveja}" method="POST">
+		
+			<input type="text" th:field="*{descricao}" required placeholder="Descircao" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{unidade}" required placeholder="Unidade" class="form-control mb-4 col-4">
+			<input type="number" th:field="*{codBarras}" placeholder="Cod. Barras" maxlength="6" required class="form-control mb-4 col-4">
+			<input type="number" th:field="*{valor}" placeholder="Valor" step=0.01 class="form-control mb-4 col-4">
+			<input type="number" th:field="*{quantidade}" placeholder="Quantidade" class="form-control mb-4 col-4">
+			<input type="date" th:field="*{dataFabricacao}" placeholder="Data Fabricacao" class="form-control mb-4 col-4">
+			
+			<button type="submit" class="btn btn-primary">adicionar</button>
+		</form>
+		<hr>
+		<a th:href="@{/}" class="btn btn-danger">Cancelar</a>
+	</div>
+</body>
+</html>
