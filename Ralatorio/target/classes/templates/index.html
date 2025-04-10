@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf8">
+    <title>Gerador de cupom</title>
+</head>
+<body>
+<div >
+		<h2>Gerador de cupom</h2><br>
+		
+		<form action="#" th:action="@{/gerar-cupom}" th:object="${cupom}" method="post">
+			Nome: <input type="text" th:field="*{nome}"> <br>
+			Idade: <input type="number" th:field="*{idade}"><br>
+			Desconto: <input type="number" step=0.01 th:field="*{desconto}"><br>
+			Data: <input type="date" th:field="*{data}">
+			
+			<button type="submit" >gerar</button>
+		</form>
+	</div>
+
+</body>
+
+</html>

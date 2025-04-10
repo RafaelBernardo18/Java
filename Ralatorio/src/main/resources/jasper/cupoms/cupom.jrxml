@@ -1,0 +1,50 @@
+<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.2-31532122640f516c6d17238ae0e41a08113d5ac0  -->
+<jasperReport name="cupom" language="java" columnCount="1" pageWidth="600" pageHeight="800" orientation="Landscape" columnWidth="600" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bc8e76e6-043c-492c-83c6-5c303e8389f8">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="nome" class="java.lang.String"/>
+	<parameter name="desconto" class="java.lang.Float"/>
+	<parameter name="idade" class="java.lang.Integer"/>
+	<parameter name="data" class="java.util.Date"/>
+	<query language="sql"><![CDATA[]]></query>
+	<variable name="nome" class="java.lang.String"/>
+	<variable name="idade" class="java.lang.Integer"/>
+	<variable name="data" class="java.util.Date">
+		<description><![CDATA[data]]></description>
+	</variable>
+	<variable name="desconto" class="java.lang.Float"/>
+	<background splitType="Stretch"/>
+	<detail>
+		<band height="300" splitType="Stretch">
+			<element kind="textField" uuid="f9624e5f-e1d5-4965-a607-b195f0c65487" x="70" y="50" width="80" height="20">
+				<expression><![CDATA[$P{nome}]]></expression>
+			</element>
+			<element kind="textField" uuid="50b9b18e-bc8d-4d25-a67f-8a7fa296e8da" x="70" y="80" width="60" height="20">
+				<expression><![CDATA[$P{idade}]]></expression>
+			</element>
+			<element kind="textField" uuid="6d5d3598-36fd-4023-92b2-65c9fce740e4" x="69" y="110" width="61" height="18">
+				<expression><![CDATA[$P{desconto}]]></expression>
+			</element>
+			<element kind="textField" uuid="eaa56a0c-e4c7-4830-b980-b6fc03957911" x="110" y="143" width="150" height="37">
+				<expression><![CDATA[$P{data}]]></expression>
+			</element>
+			<element kind="textField" uuid="12fe89fd-ee13-47f1-8bcd-cdc24841161a" x="40" y="140" width="60" height="20">
+				<expression><![CDATA["DATA : "]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="textField" uuid="fc706150-4e20-4ad1-822f-dd08d73d4c45" x="40" y="170" width="60" height="20">
+				<expression><![CDATA["DATA : "]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</detail>
+</jasperReport>
