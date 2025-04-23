@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf8">
+    <title>Spring Security</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" >
+</head>
+
+<body>
+<!-- 
+ apesar da classe usuario usar o atributos email e senha que serao parassados a classe service e validar.
+ o framework spring security espera nessa pagina um name de username e password. 
+  -->
+
+<div class="container">
+
+<form th:action="@{/login}" method="post">
+<fieldset>
+<legend>Login</legend>
+ 
+ <div th:if="${param.error}" class="alert alert-erro">
+ 	invalido
+ </div>
+  <div class="row justify-content-md-center">
+    <label for="username"><b>Email:</b></label>
+    <input type="text" placeholder="email@mail.com" id="username" name="username" required>
+
+    <label for="password" ><b>Senha:</b></label>
+    <input type="password" placeholder="senha" id="password" name="password" required>
+
+  </div>
+  	<br><br>
+		<button type="submit" class="btn btn-secondary btn-lg active">Login</button>
+	</fieldset>
+</form>
+
+ 
+</div>
+</body>
+
+</html>
